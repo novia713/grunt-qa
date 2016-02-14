@@ -28,6 +28,28 @@
         },
         phploc: {
           command: '/usr/local/bin/phploc ../src'
+        },
+
+        /*
+        this creates an xml file in «pdepend» directory
+        also creates some JDepend graphics in svg
+         */
+        pdepend: {
+          command: function() {
+            var chart, directory, mkdir, now, pdepend, pyramid, summary;
+            now = grunt.template.today("isoDateTime");
+            directory = './pdepend/' + now;
+            mkdir = 'mkdir -p ' + directory;
+            summary = directory + '/summary.xml';
+            chart = directory + '/chart.svg';
+            pyramid = directory + '/pyramid.svg';
+            pdepend = '/usr/local/bin/pdepend ';
+            pdepend += '--summary-xml=' + summary + ' ';
+            pdepend += '--jdepend-chart=' + chart + ' ';
+            pdepend += '--overview-pyramid=' + pyramid + ' ';
+            pdepend += '../src';
+            return mkdir + ' && ' + pdepend;
+          }
         }
       },
       phplint: {

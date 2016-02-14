@@ -5,6 +5,7 @@
 # npm install --save-dev grunt-phplint
 # this script assumes security-checker is in /usr/local/bin
 # this script assumes phploc is in /usr/local/bin
+# this script assumes pdepend is in /usr/local/bin
 
 
 module.exports = (grunt) ->
@@ -37,6 +38,28 @@ module.exports = (grunt) ->
       },
       phploc: {
         command: '/usr/local/bin/phploc ../src'
+      },
+      ###
+      this creates an xml file in «pdepend» directory
+      also creates some JDepend graphics in svg
+      ###
+      pdepend: {
+        command: () ->
+          now = grunt.template.today("isoDateTime")
+          directory = './pdepend/' + now
+          mkdir = 'mkdir -p ' + directory
+          summary = directory + '/summary.xml'
+          chart   = directory + '/chart.svg'
+          pyramid = directory + '/pyramid.svg'
+
+          pdepend = '/usr/local/bin/pdepend '
+          pdepend += '--summary-xml=' + summary + ' '
+          pdepend += '--jdepend-chart=' + chart + ' '
+          pdepend += '--overview-pyramid=' + pyramid + ' '
+          pdepend += '../src'
+
+          return mkdir + ' && ' + pdepend
+
       }
     },
 
