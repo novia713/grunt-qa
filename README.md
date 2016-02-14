@@ -1,6 +1,13 @@
 # :sparkles: :collision: grunt-qa
 ##Grunt tasks as a quality tool for DrupalConsole development
 
+### Install & Play
+#### Install
+Create a new directory under the root directory of DrupalConsole. Clone this repo in the new directory. Its parent directory must be the root of DrupalConsole.
+#### Play
+The only file you need to modify is `Gruntfile.coffee`
+You should compile Gruntfile.coffee after modifying it with `coffee -c Gruntfile.coffee`
+
 ### Tests & Code Standards
 This experiment was born as a creativity flare to explore the options Grunt offers at auditing PHP code quality of the DrupalConsole project.
 Initially, my first priorities were to be able to run phpunit tests of the DrupalConsole project. Also live observing code standards when editing files of this project.
