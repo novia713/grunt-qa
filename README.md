@@ -38,8 +38,8 @@ NOTE: to run tests this project assumes that the phpunit.xml.dist has appropiate
 - `grunt shell:security_checker` runs comprobations against nasty libraries (it seeks the composer.lock)
 
 ### Pdepend & PHPLoc
-- `grunt shell:pdepend` this creates an xml file in «pdepend» directory also creates some JDepend graphics in svg
-- `grunt shell:phploc` for quickly measuring the size and analyzing the structure of
+- `grunt shell:pdepend` this creates an xml file in «pdepend» directory; also creates some JDepend graphics in svg,
+- `grunt shell:phploc` for quickly measuring the size and analyzing the structure of the project.
  
 ## Feedback wanted
 If you develop DrupalConsole, please let me know how to get better this and feel free to propose any idea or suggestion.
