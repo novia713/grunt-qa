@@ -7,6 +7,10 @@
 # this script assumes phploc is in /usr/local/bin
 # this script assumes pdepend is in /usr/local/bin
 
+###
+@todo: put into variables all the paths for easier customization
+###
+
 
 module.exports = (grunt) ->
 
@@ -72,10 +76,13 @@ module.exports = (grunt) ->
       ]
     }
 
-    # observa cambios en ficheros para ejecutar tareas
-    # se puede dar el directorio de ficheros que queramos observar
-    # se puede dar la tarea cualquiera que queramos ejecutar
-    # digamos, en este caso, que queremos correr phpcs en cada cambio en los test de Helper
+    ###
+    observa cambios en ficheros para ejecutar tareas
+    se puede dar el directorio de ficheros que queramos observar
+    se puede dar la tarea cualquiera que queramos ejecutar
+    digamos, en este caso, que queremos correr phpcs en cada cambio en los test de Helper
+    ###
+
     watch: {
       scripts: {
         files: '../Test/Helper/*.php'
