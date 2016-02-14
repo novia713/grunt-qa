@@ -25,6 +25,9 @@
           options: {
             stdout: true
           }
+        },
+        phploc: {
+          command: '/usr/local/bin/phploc ../src'
         }
       },
       phplint: {
@@ -36,7 +39,7 @@
       watch: {
         scripts: {
           files: '../Test/Helper/*.php',
-          tasks: ['shell:phpcs_helpers', 'phplint'],
+          tasks: ['shell:phpcs_helpers'],
           options: {
             spawn: false,
             event: ['all']

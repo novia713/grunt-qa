@@ -4,6 +4,7 @@
 # npm install grunt-phpcs --save-dev
 # npm install --save-dev grunt-phplint
 # this script assumes security-checker is in /usr/local/bin
+# this script assumes phploc is in /usr/local/bin
 
 
 module.exports = (grunt) ->
@@ -33,6 +34,9 @@ module.exports = (grunt) ->
         options: {
           stdout: true
         }
+      },
+      phploc: {
+        command: '/usr/local/bin/phploc ../src'
       }
     },
 
