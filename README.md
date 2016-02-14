@@ -26,7 +26,10 @@ NOTE: to run tests this project assumes that the phpunit.xml.dist has appropiate
 ### Live watching changes and getting notified of coding standards
 - you can personalize de *watch* task with whatever command you want, for now i setted up phpcs_helpers to be executed at any change on every /Test/Helper/*.php file. The command to accomplish this is `grunt watch`
 
-
+### Security Checker & PHPLint
+- `grunt phplint` at the moment, lints all the PHP files
+- `grunt shell:security_checker` runs comprobations against nasty libraries (it seeks the composer.lock)
+ 
 ## Feedback wanted
 If you develop DrupalConsole, please let me know how to get better this and feel free to propose any idea or suggestion.
 My goal is to make DrupalConsole easier & more confortable to develop
