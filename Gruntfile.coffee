@@ -2,6 +2,8 @@
 # npm install --save-dev grunt-shell
 # npm install --save-dev load-grunt-tasks
 # npm install grunt-phpcs --save-dev
+# npm install --save-dev grunt-phplint
+# this script assumes security-checker is in /usr/local/bin
 
 
 module.exports = (grunt) ->
@@ -25,8 +27,23 @@ module.exports = (grunt) ->
       },
       phpcs_helpers: {
         command: 'phpcs --standard=PEAR  ../Test/Helper/*.php'
+      },
+      security_checker: {
+        command: 'security-checker security:check ..',
+        options: {
+          stdout: true
+        }
       }
     },
+
+    phplint: {
+      options: {
+        swapPath: '/tmp'
+      },
+      all: [
+        '../**/*.php'
+      ]
+    }
 
     # observa cambios en ficheros para ejecutar tareas
     # se puede dar el directorio de ficheros que queramos observar

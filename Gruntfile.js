@@ -19,12 +19,24 @@
         },
         phpcs_helpers: {
           command: 'phpcs --standard=PEAR  ../Test/Helper/*.php'
+        },
+        security_checker: {
+          command: 'security-checker security:check ..',
+          options: {
+            stdout: true
+          }
         }
+      },
+      phplint: {
+        options: {
+          swapPath: '/tmp'
+        },
+        all: ['../**/*.php']
       },
       watch: {
         scripts: {
           files: '../Test/Helper/*.php',
-          tasks: ['shell:phpcs_helpers'],
+          tasks: ['shell:phpcs_helpers', 'phplint'],
           options: {
             spawn: false,
             event: ['all']
