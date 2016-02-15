@@ -4,6 +4,7 @@
 
   /*
   @todo: put into variables all the paths for easier customization
+  @todo: task for checking all the .phar's
    */
   module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
@@ -22,10 +23,10 @@
           command: 'phpcs -a --standard=PEAR  ../Test/Command/*.php'
         },
         phpcs_helpers: {
-          command: 'phpcs --standard=PEAR  ../Test/Helper/*.php'
+          command: 'phpcs --standard=PSR2  ../Test/Helper/*.php'
         },
         phpcsfixer_helpers: {
-          command: 'php-cs-fixer fix ../Test/Helper/*.php'
+          command: 'php-cs-fixer fix ../Test/Helper/*.php --level=psr2 --verbose'
         },
         security_checker: {
           command: 'security-checker security:check ..',
@@ -75,7 +76,7 @@
       watch: {
         scripts: {
           files: '../Test/Helper/*.php',
-          tasks: ['shell:phpcsfixer_helpers'],
+          tasks: ['shell:phpcs_helpers'],
           options: {
             spawn: false,
             event: ['all']
