@@ -6,9 +6,11 @@
 # this script assumes security-checker is in /usr/local/bin
 # this script assumes phploc is in /usr/local/bin
 # this script assumes pdepend is in /usr/local/bin
+# this script assumes php-cs-fixer is in /usr/local/bin
 
 ###
 @todo: put into variables all the paths for easier customization
+@todo: task for checking all the .phar's
 ###
 
 
@@ -33,6 +35,9 @@ module.exports = (grunt) ->
       },
       phpcs_helpers: {
         command: 'phpcs --standard=PEAR  ../Test/Helper/*.php'
+      },
+      phpcsfixer_helpers: {
+        command: 'php-cs-fixer fix ../Test/Helper/*.php'
       },
       security_checker: {
         command: 'security-checker security:check ..',
@@ -86,7 +91,8 @@ module.exports = (grunt) ->
     watch: {
       scripts: {
         files: '../Test/Helper/*.php'
-        tasks: ['shell:phpcs_helpers']
+        #tasks: ['shell:phpcs_helpers']
+        tasks: ['shell:phpcsfixer_helpers']
         options: {
 
           spawn:false

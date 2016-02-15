@@ -24,6 +24,9 @@
         phpcs_helpers: {
           command: 'phpcs --standard=PEAR  ../Test/Helper/*.php'
         },
+        phpcsfixer_helpers: {
+          command: 'php-cs-fixer fix ../Test/Helper/*.php'
+        },
         security_checker: {
           command: 'security-checker security:check ..',
           options: {
@@ -72,7 +75,7 @@
       watch: {
         scripts: {
           files: '../Test/Helper/*.php',
-          tasks: ['shell:phpcs_helpers'],
+          tasks: ['shell:phpcsfixer_helpers'],
           options: {
             spawn: false,
             event: ['all']
