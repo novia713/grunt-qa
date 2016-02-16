@@ -1,0 +1,12 @@
+root_dir:        "../"
+phpunit_xml:     "/home/leandro/git/DrupalConsole/phpunit.xml.dist"
+src_dir:         "../src"
+tmp_dir:         "/tmp"
+pdepend_out_dir: "./pdepend/"
+
+phploc_exec:     "/usr/local/bin/phploc"
+pdepend_exec:    "/usr/local/bin/pdepend"
+security_checker_exec: "/usr/local/bin/security-checker"
+php_cs_fixer_exec: "/usr/local/bin/php-cs-fixer"
+php_cs_exec:     "/usr/bin/phpcs"
+phpunit_exec:    "/usr/bin/phpunit"
