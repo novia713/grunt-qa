@@ -23,6 +23,20 @@ module.exports = (grunt) ->
 
   grunt.initConfig {
 
+    notify: {
+      options: {
+        enabled: true,
+        title: "Grunt PHP-QA",
+        success: false,
+        duration: 3
+      },
+      phploc: {
+        options: {
+          message: '¡ phploc executed !'
+        }
+      } #,@todo: etc...
+    }
+
     shell: {
       test_all: {
         command: grunt.config.vars.phpunit_exec + ' --config ' + grunt.config.vars.phpunit_xml
@@ -126,8 +140,7 @@ module.exports = (grunt) ->
             else
               cmd = 'shell:'+ c
 
-
-            grunt.task.run [ cmd , "prompt:target"]
+            grunt.task.run [ cmd , 'notify:' + c, "prompt:target"]
             console.log ""
         }
       }

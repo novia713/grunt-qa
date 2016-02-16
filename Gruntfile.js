@@ -10,6 +10,19 @@
     require('load-grunt-tasks')(grunt);
     grunt.config.vars = grunt.file.readYAML('variables.yaml');
     grunt.initConfig({
+      notify: {
+        options: {
+          enabled: true,
+          title: "Grunt PHP-QA",
+          success: false,
+          duration: 3
+        },
+        phploc: {
+          options: {
+            message: '¡ phploc executed !'
+          }
+        }
+      },
       shell: {
         test_all: {
           command: grunt.config.vars.phpunit_exec + ' --config ' + grunt.config.vars.phpunit_xml
@@ -130,9 +143,8 @@
               } else {
                 cmd = 'shell:' + c;
               }
-              grunt.task.run([cmd]);
-              console.log("");
-              return grunt.task.run(["default"]);
+              grunt.task.run([cmd, 'notify:' + c, "prompt:target"]);
+              return console.log("");
             }
           }
         }
